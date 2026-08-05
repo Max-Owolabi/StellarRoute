@@ -163,6 +163,21 @@ npm --prefix frontend run storybook:ci
 
 This is the CI-oriented Ladle build command used for the frontend story/snapshot path.
 
+### Accessibility (a11y) e2e scans
+
+The frontend also ships a Playwright + axe suite at `frontend/e2e/a11y-swap-flow.spec.ts`
+(project `a11y`). It scans the swap form, token dialog, route list, confirmation modal,
+settings panel, and cross-chain deck, failing only on `critical`/`serious` axe violations.
+
+The axe configuration, severity threshold, and baseline exclusions are documented in
+[`frontend/docs/a11y-testing.md`](../../frontend/docs/a11y-testing.md).
+
+Run the a11y suite locally:
+
+```bash
+npm --prefix frontend run test:e2e -- a11y-swap-flow --project=a11y
+```
+
 ---
 
 ## 7. CI workflow mapping
